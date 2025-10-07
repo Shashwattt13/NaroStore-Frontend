@@ -8,6 +8,10 @@ A beautiful, feature-rich e-commerce website for GenZ fashion with a powerful ad
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
+## 🚀 Live Site
+
+[View Live Site](https://narostore.netlify.app/) 
+
 ## ✨ Features
 
 ### 🎨 Customer Website
@@ -63,9 +67,6 @@ A beautiful, feature-rich e-commerce website for GenZ fashion with a powerful ad
 - **Settings Panel**: Store configuration and shipping settings
 - **Mobile Responsive**: Hamburger menu, optimized layouts
 
-## 🚀 Live Demo
-
-[View Live Demo](#narostore.netlify.app) 
 
 ## 🛠️ Tech Stack
 
@@ -226,6 +227,9 @@ This project uses **localStorage** for data persistence:
 - `naroAdminAuth` - Admin authentication
 
 **Note**: Data is stored locally in the browser. Clearing browser data will reset everything.
+
+## 🚀 Live Website Link 
+https://narostore.netlify.app/
 
 **Made with ❤️ for the community**
 
