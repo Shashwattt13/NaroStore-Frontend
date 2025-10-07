@@ -229,3 +229,6 @@ This project uses **localStorage** for data persistence:
 - `naroAdminAuth` - Admin authentication
 
 **Note**: Data is stored locally in the browser. Clearing browser data will reset everything.
+
+**Made with ❤️ for the community**
+
