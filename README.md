@@ -65,7 +65,7 @@ A beautiful, feature-rich e-commerce website for GenZ fashion with a powerful ad
 
 ## 🚀 Live Demo
 
-[View Live Demo](#) *(Add your GitHub Pages link here)*
+[View Live Demo](#narostore.netlify.app) 
 
 ## 🛠️ Tech Stack
 
@@ -100,7 +100,7 @@ Naro-Store/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/naro-store.git
+   git clone https://github.com/shashwattt13/naro-store.git
    cd naro-store
    ```
 
@@ -118,9 +118,6 @@ Naro-Store/
      Right-click index.html → Open with Live Server
      ```
 
-3. **Access the website**
-   - Customer Site: `http://localhost:8000/index.html`
-   - Admin Panel: `http://localhost:8000/admin.html`
 
 ## 👤 Default Credentials
 
