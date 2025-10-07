@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naro Store - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Toast Notification -->
+    <div id="admin-toast" class="toast"></div>
+
+    <!-- Sidebar -->
+    <div class="admin-sidebar" id="admin-sidebar">
+        <div class="sidebar-header">
+            <h2>NARO Admin</h2>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="admin-profile">
+            <div class="admin-avatar">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <h3 id="admin-name">Admin User</h3>
+            <p id="admin-email">admin@narostore.com</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <button class="nav-item active" data-section="dashboard">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" data-section="products">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </button>
+            <button class="nav-item" data-section="orders">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Orders</span>
+            </button>
+            <button class="nav-item" data-section="users">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </button>
+            <button class="nav-item" data-section="reviews">
+                <i class="fas fa-star"></i>
+                <span>Reviews</span>
+            </button>
+            <button class="nav-item" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <button class="logout-btn" id="admin-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+        <!-- Top Bar -->
+        <div class="admin-topbar">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+            <div class="topbar-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="admin-section active" id="dashboard-section">
+            <div class="welcome-banner">
+                <div class="welcome-content">
+                    <h2>👋 Welcome Back, Admin!</h2>
+                    <p>Here's what's happening with your store today</p>
+                </div>
+                <div class="welcome-time" id="current-time"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #3d6b5e;">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-orders">0</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #4a7c6f;">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-revenue">₹0</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #5a9b87;">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-products">12</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #6aab97;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-users">0</h3>
+                        <p>Total Users</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="chart-card">
+                    <h3>Recent Orders</h3>
+                    <div class="recent-orders" id="recent-orders">
+                        <p style="text-align:center;padding:2rem;opacity:0.6;">No orders yet</p>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Top Products</h3>
+                    <div class="top-products" id="top-products">
+                        <p style="text-align:center;padding:2rem;opacity:0.6;">No sales data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="admin-section" id="products-section">
+            <div class="section-header">
+                <h2>Products Management</h2>
+                <button class="btn btn-primary" id="add-product-btn">
+                    <i class="fas fa-plus"></i> Add Product
+                </button>
+            </div>
+            <div class="products-table" id="products-table">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Orders Section -->
+        <div class="admin-section" id="orders-section">
+            <div class="section-header">
+                <h2>Orders Management</h2>
+                <div class="filter-group">
+                    <select class="filter-select" id="order-status-filter">
+                        <option value="all">All Status</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="orders-table" id="orders-table">
+                <!-- Orders will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Users Section -->
+        <div class="admin-section" id="users-section">
+            <div class="section-header">
+                <h2>Users Management</h2>
+            </div>
+            <div class="users-table" id="users-table">
+                <!-- Users will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="admin-section" id="reviews-section">
+            <div class="section-header">
+                <h2>Reviews Management</h2>
+            </div>
+            <div class="reviews-list" id="admin-reviews-list">
+                <!-- Reviews will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="admin-section" id="settings-section">
+            <div class="section-header">
+                <h2>Settings</h2>
+            </div>
+            <div class="settings-form">
+                <div class="setting-group">
+                    <h3>Store Information</h3>
+                    <input type="text" placeholder="Store Name" value="Naro Store" class="admin-input">
+                    <input type="email" placeholder="Store Email" value="info@narostore.com" class="admin-input">
+                    <input type="tel" placeholder="Store Phone" value="+91 1234567890" class="admin-input">
+                </div>
+                <div class="setting-group">
+                    <h3>Shipping Settings</h3>
+                    <input type="number" placeholder="Shipping Cost" value="50" class="admin-input">
+                    <input type="text" placeholder="Delivery Time" value="3-5 days" class="admin-input">
+                </div>
+                <button class="btn btn-primary">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
